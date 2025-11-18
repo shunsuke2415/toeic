@@ -1,0 +1,31 @@
+<h1>GeekTwitter</h1>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %> 
+<%= link_to "診断機能",  new_post_path %>
+
+<h3>Tweet一覧</h3>
+<%= link_to "新規投稿へ", new_tweet_path %>
+<div class="tweets-container">
+    <% @tweets.each do |t| %>
+    <div class="tweet">
+            <%t.user.email%>
+            <%= t.body %>
+<% if user_signed_in? %>
+        <% if current_user.already_liked?(t) %>
+        <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), data: { turbo_method: :delete } do %>
+            <p>いいねを取り消す</p><%= t.likes.count %>
+        <% end %>
+        <% else %>
+        <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), data: { turbo_method: :post }  do %>
+            <p>いいね</p><%= t.likes.count %>
+        <% end %>
+    <% end %>
+<% else %>
+    <p>いいねの数 = </p><%= t.likes.count %>
+<% end %>
+        <%= t.created_at %>
+        <%= link_to "詳細へ", tweet_path(t.id) %>
+        <%= link_to "編集する", edit_tweet_path(t.id) %>
+        <%= button_to "削除する", tweet_path(t.id), method: :delete %> 
+        </div>
+    <% end %>
+</div>
