@@ -1,0 +1,27 @@
+<h1>いいねランキング</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>順位</th>
+        <th>タイトル</th>
+        <th>いいね数</th>
+        <th>投稿者</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @likes.each.with_index(@likes.offset_value + 1) do |like, rank| %>
+        <tr>
+        <td><strong><%= rank %>位</strong></td>
+        <td><%= link_to like.title, like_path(like) %></td>
+        <td><%= like.liked_users.size %></td>
+        <td><%= like.user.name %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<%# Kaminariによるページネーションリンクを表示 %>
+<div class="d-flex justify-content-center">
+    <%= paginate @like %>
+</div>

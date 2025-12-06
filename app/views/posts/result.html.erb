@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>あなたのためのTOEIC学習ロードマップ</h1>
+  <p>診断結果「<%= params[:code] %>」に基づき、あなたに最適な4冊の書籍が選ばれました。</p>
+  <hr>
+
+  <div class="row">
+    <% @diagnosis_results.each_with_index do |post, index| %>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+
+            <h2 class="card-title text-primary">
+              <%= index + 1 %>冊目のおすすめ
+            </h2>
+            <hr>
+
+            <h3 class="card-subtitle mb-2"><%= post.title %></h3>
+
+            <div class="book-info mt-3 d-flex">
+              <div class="book-content ms-3">
+                <p class="text-muted"><%= post.content %></p>
+                <small class="text-secondary">
+                  書籍番号: <%= post.book_id %>
+                </small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

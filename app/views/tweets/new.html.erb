@@ -1,10 +1,21 @@
-<h1>GeekTwitter</h1>
-<h3>新規Tweet</h3>
-<%= form_for @tweet do |f| %>
-    <div class="field">
-    <%= f.label :body %>
-    <%= f.text_field :body, :size => 140 %>
-    </div>
-    <%= f.submit "Tweetする" %>
-<% end %>
-<%= link_to "Tweet一覧に戻る", tweets_path %>
+<%= stylesheet_link_tag 'new', media: "all" %>
+
+<div class="post-container">
+    <p class="title">投稿フォーム</p>
+
+    <%= form_for @tweet do |f| %>
+    
+    <%= f.label :body, "投稿内容" %><br>
+    <%= f.text_field :body, size: 140 %><br>
+
+    <!-- ★ 画像投稿欄（必須！） -->
+    <%= f.label :image, "画像" %><br>
+    <%= f.file_field :image %><br>
+
+    <%= f.submit "送信" %><br>
+
+    <% end %>
+
+    <%= link_to "Tweet一覧に戻る", tweets_path %>
+
+</div>

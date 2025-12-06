@@ -8,62 +8,109 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-diagnosis_results = [
-    {   number: 111,
-        content: 'あなたは社交的で活発なタイプです。',
-        },
-    {   number: 112,
-        content: 'あなたは内向的で穏やかなタイプです。',
+diagnosis_results= [
+    {
+        title: "銀のフレーズ",
+        image_id: "gin_phrase.png",
+        content: "TOEIC頻出単語の銀レベル。",
+        book_id: 1  # 変更
     },
-    {   number: 121,
-        content: 'あなたは自由を愛する冒険家です。' ,
+    {
+        title: "金のフレーズ",
+        image_id: "kin_phrase.png",
+        content: "TOEIC頻出単語の金レベル。",
+        book_id: 2  # 変更
     },
-    {   number: 122,
-        content: 'あなたは思慮深く、落ち着いたタイプです。',
+    {
+        title: "初めて受けるTOEIC(R)L&Rテスト 全パート完全攻略",
+        image_id: "bunpo_400.png",
+        content: "文法問題を集中的に対策。",
+        book_id: 3  # 変更
     },
-    # Q.1が10代（1）、Q.2が男性（1）、Q.3がメガネをかけていない（1）→ number: 111
-    # Q.1が10代（1）、Q.2が男性（1）、Q.3がメガネをかけている（2）→ number: 112
-    # Q.1が10代（1）、Q.2が女性（2）、Q.3がメガネをかけていない（1）→ number: 121
-    # Q.1が10代（1）、Q.2が女性（2）、Q.3がメガネをかけている（2）→ number: 122
-    {   number: 211,
-        content: 'あなたは好奇心旺盛で、新しいことに挑戦するのが好きです。',
+    {
+        title: "世界一わかりやすいTOEIC(R)L&Rテスト総合模試(６００点突破レベル)",
+        image_id: "gin_phrase.png",
+        content: "TOEIC頻出単語の銀レベル。",
+        book_id: 4  # 変更
     },
-    {   number: 212,
-        content: 'あなたは堅実で、信頼できる存在です。',
+    {
+        title: "TOEIC(R)L&Rテスト 文法問題はじめの４００問",
+        image_id: "kin_phrase.png",
+        content: "TOEIC頻出単語の金レベル。",
+        book_id: 5 # 変更
     },
-    {   number: 221,
-        content: 'あなたは感受性が豊かで、創造的な才能に恵まれています。',
+    {
+        title: "TOEIC (R) L&Rテスト 文法問題でる1000問",
+        image_id: "bunpo_400.png",
+        content: "文法問題を集中的に対策。",
+        book_id: 6  # 変更
     },
-    {   number: 222,
-        content: 'あなたは論理的思考に優れ、問題解決が得意です。',
+    {
+        title: "TOEIC公式問題集",
+        image_id: "gin_phrase.png",
+        content: "TOEIC頻出単語の銀レベル。",
+        book_id: 7  # 変更
     },
-    # Q.1が20代（2）、Q.2が男性（1）、Q.3がメガネをかけていない（1）→ number: 211
-    # ...以下同様に組み合わせを作成...
-    {   number: 311,
-        content: 'あなたは落ち着いていて、周りをサポートする力があります。',
+    {
+        title: "TOEIC(R)L&Rテスト 全パート完全攻略８００＋",
+        image_id: "kin_phrase.png",
+        content: "TOEIC頻出単語の金レベル。",
+        book_id: 8  # 変更
     },
-    {   number: 312,
-        content: 'あなたは常に目標に向かって努力を続ける勤勉な人です。' ,
+    {
+        title: "世界一わかりやすいTOEICテストの授業(Part1-4リスニング)",
+        image_id: "bunpo_400.png",
+        content: "文法問題を集中的に対策。",
+        book_id: 9  # 変更
     },
-    {   number: 321,
-        content: 'あなたはユーモアのセンスがあり、周りを明るくします。' ,
+    {
+        title: "世界一わかりやすいTOEICテストの授業(Part7)",
+        image_id: "gin_phrase.png",
+        content: "TOEIC頻出単語の銀レベル。",
+        book_id: 10  # 変更
     },
-    {   number: 322,
-        content: 'あなたは知恵があり、深い洞察力を持っています。' ,
+    {
+        title: "TOEIC(R)L&Rテスト 精選模試１ リーディング",
+        image_id: "kin_phrase.png",
+        content: "TOEIC頻出単語の金レベル。",
+        book_id: 11 # 変更
     },
-    # Q.1が30代（3）...
-    {   number: 411,
-        content: 'あなたは経験豊富で、頼りになるリーダータイプです。',
+    {
+        title: "TOEIC (R) L&Rテスト 精選模試１ リスニング",
+        image_id: "bunpo_400.png",
+        content: "文法問題を集中的に対策。",
+        book_id: 12 # 変更
     },
-    {   number: 412,
-        content: 'あなたは平和主義者で、調和を大切にします。' ,
+    {
+        title: "TOEIC(R)L&Rテスト 精選模試２ リーディング",
+        image_id: "kin_phrase.png",
+        content: "TOEIC頻出単語の金レベル。",
+        book_id: 13 # 変更
     },
-    {   number: 421,
-        content: 'あなたは誰に対しても優しく、思いやりがあります。' ,
+    {
+        title: "TOEIC (R) L&Rテスト 精選模試２ リスニング",
+        image_id: "bunpo_400.png",
+        content: "文法問題を集中的に対策。",
+        book_id: 14 # 変更
     },
-    {   number: 422,
-        content: 'あなたは自分の意見をしっかり持ち、信念を貫きます。' ,
-    }
+    {
+        title: "TOEIC (R) L&Rテスト 精選模試３ リーディング",
+        image_id: "bunpo_400.png",
+        content: "文法問題を集中的に対策。",
+        book_id: 15 # 変更
+    },
+    {
+        title: "TOEIC(R)L&Rテスト 精選模試３ リスニング",
+        image_id: "kin_phrase.png",
+        content: "TOEIC頻出単語の金レベル。",
+        book_id: 16 # 変更
+    },
+    {
+        title: "TOEIC L&R TEST ９９０点獲得 全パート難問模試",
+        image_id: "bunpo_400.png",
+        content: "文法問題を集中的に対策。",
+        book_id: 17 # 変更
+    },
 ]
 # Post.create!メソッドでデータベースに診断結果を投入
 diagnosis_results.each do |result|
