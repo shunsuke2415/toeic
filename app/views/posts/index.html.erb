@@ -18,10 +18,18 @@
 
                 <div class="book-info mt-3 d-flex">
                 <div class="book-content ms-3">
+                    <div class="image">
+                    <%= cl_image_tag(post.image_id, crop: :scale) %>
+                    </div>
                     <p class="text-muted"><%= post.content %></p>
                     <small class="text-secondary">
                     書籍番号: <%= post.book_id %>
                     </small>
+                    <%# おすすめの理由 %>
+                    <%# Amazonへのリンク %>
+                    <div class="amazon-link-btn">
+                    <p><%= link_to 'Amazonで購入する', post.amazon_url, target: '_blank', rel: 'noopener noreferrer' %></p>
+                    </div>
                 </div>
                 </div>
 

@@ -1,19 +1,20 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # Devise modules
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
-          
+
+  # Associations
   has_many :tweets, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
-  has_many :posts,dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :liked_tweets, through: :likes, source: :tweet
-  has_many :comments, dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :post
+  has_many :liked_tweets, through: :likes, source: :tweet  # Tweetに対するlike
+  has_many :liked_posts, through: :likes, source: :post     # Postに対するlike
 
+  has_many :comments, dependent: :destroy
+
+  # すでにいいねしているか？
   def already_liked?(tweet)
-    self.likes.exists?(tweet_id: tweet.id)
+    likes.exists?(tweet_id: tweet.id)
   end
-  
 end

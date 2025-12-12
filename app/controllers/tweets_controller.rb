@@ -3,6 +3,8 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    @rank_tweets = Tweet.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
+    @tweets = Tweet.includes(:liked_users).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
   end
   def new
     @tweet = Tweet.new
@@ -45,6 +47,10 @@ class TweetsController < ApplicationController
     redirect_to action: :index
   end
   
+  def post_params
+  params.require(:post).permit(:body, :reason, :amazon_link) # ここを更新
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:body, :image)

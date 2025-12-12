@@ -18,15 +18,22 @@
     margin: 0;
     }
     body {
-    background-image: url("background.jpg");
-    background-size: cover;
+    background-image: url("background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #c7E6FF;
     min-height: 100vh;
     position: relative; 
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
         Meiryo, "ＭＳ Ｐゴシック", sans-serif;
-        display: flex;
-        flex-direction: column;
     }
+    /* Tweetsページだけは body の中央寄せを解除 */
+body.tweets-page {
+  align-items: stretch;     /* 横幅いっぱいに広げる */
+  justify-content: flex-start; /* 上寄せに戻す（お好み） */
+}
+
     header {
     background-color: #00acee;
     height: 80px;
@@ -46,6 +53,7 @@
     .header-list {
     display: flex;
     align-items: center;
+    margin-left: auto;
     }
     header ul {
     display: flex;
@@ -54,6 +62,99 @@
     list-style: none;
     margin-right: 40px;
     }
+    
+    h3 {
+  color: white;            /* 白文字 */
+  width: 250px;            /* テキストの箱の幅を狭めて改行させる */
+  margin: 30px auto;       /* 中央寄せ */
+  text-align: center;      /* 中央揃え */
+  line-height: 1.4;        /* 読みやすい行間 */
+  word-break: break-all;   /* 日本語の長文でも改行される */
+}
+    .radio-group {
+    display: flex;
+    justify-content: center;   /* 中央そろえ */
+    gap: 30px;                 /* 選択肢の間隔 */
+    flex-wrap: wrap;           /* スマホで折り返し */
+    margin-top: 20px;
+}
+
+.radio-group input[type="radio"] {
+  display: none;             /* ラジオボタンを消す */
+}
+
+    .radio-group {
+    display: flex;
+    flex-direction: column;   /* ←縦並びに変更 */
+    align-items: center;       /* 中央寄せ */
+    gap: 15px;                 /* ボタン同士の間隔 */
+    margin-top: 20px;
+}
+
+.radio-group input[type="radio"] {
+  display: none;             /* ラジオボタンを隠す */
+}
+
+/* ラジオボタンを非表示 */
+    input[type="radio"] {
+    display: none;
+}
+
+    /* label をボタン化 */
+    label {
+  display: block;        /* ← 横並びから縦並びに変更！ */
+  width: fit-content;    /* ボタンの幅をテキストに合わせる */
+  margin: 10px auto;     /* ← 左右自動 = 中央寄せ */
+    padding: 0.6em 1.2em;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    color: #00BCD4;
+    background: #ECECEC;
+    border-radius: 6px;
+    transition: .3s;
+    text-align: center;
+}
+
+    /* hover 時 */
+    label:hover {
+    background: #00BCD4;
+    color: #fff;
+}
+
+    /* ★ 選択されたときに色変更（重要） */
+    input[type="radio"]:checked + label {
+    background: #00BCD4;
+    color: white;
+}
+
+
+
+/* 選択された時の見た目 */
+.radio-group input[type="radio"]:checked + label {
+  background-color: #00135f;  /* 選択時の背景色 */
+  color: white;               /* 文字を白色に */
+}
+
+
+/* ツイート全体を横いっぱいにする */
+.tweets-container {
+  width: 100%;
+  max-width: 900px; /* 好みに合わせて調整可能 */
+  margin: 0 auto;   /* 中央に配置 */
+}
+
+/* 個々の tweet も横いっぱいに広げる */
+.tweet {
+  width: 100%;
+  background-color: rgba(255,255,255,0.8); /* 背景を見やすくする */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+
+
 footer {
     color: white;
     height: 30px;
@@ -66,3 +167,103 @@ footer {
     justify-content: flex-end;
 }
 
+/* ログインページの入力フォーム全体の位置を調整 */
+body.sessions-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;  /* 🔥下部に寄せるポイント */
+  min-height: 100vh;
+  padding-bottom: 100px;      /* ちょうどいい高さに調整 */
+}
+
+/* フォームの箱（見た目を揃えたい場合） */
+.sessions-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* 各入力欄の間隔を統一 */
+}
+
+/* 奇数番目（1冊目・3冊目…） */
+.card-body:nth-of-type(odd) {
+  background-color: rgba(0, 90, 200, 0.6); /* 青系 */
+  color: white;
+  padding: 10px 0;
+    border-radius: 6px;
+    width: 100%;              /* ★ カードの幅いっぱいに広げる */
+    text-align: center;       /* ★ 文字を中央寄せ */
+    display: block;           /* ★ 幅100%を有効にするため */
+    margin-bottom: 10px;
+}
+
+/* 偶数番目（2冊目・4冊目…） */
+.card-body:nth-of-type(even) {
+  background-color: rgba(255, 255, 255, 0.9); /* 白 */
+  color: black;
+  padding: 10px 0;
+    border-radius: 6px;
+    width: 100%; 
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ▼ ログイン / 新規登録をボタン化する ▼ */
+.login-signup-buttons {
+  display: flex;
+  flex-direction: column; /* 縦並び */
+  align-items: center;    /* 中央寄せ */
+  gap: 12px;              /* ボタン同士の間隔 */
+  margin-top: 20px;
+}
+
+.login-signup-buttons a {
+  display: block;
+  width: fit-content;         /* テキストに合わせて幅調整 */
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #ECECEC;
+  color: #00BCD4;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* hover */
+.login-signup-buttons a:hover {
+  background: #00BCD4;
+  color: white;
+}
+
+.menu-label {
+  background-color: #ECECEC;
+  color: #00BCD4;
+  font-size: 18px;
+  padding: 10px 54px;
+  margin: 10px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.menu-label:hover {
+  opacity: 0.8;
+}
+.logout-form {
+  display: inline;
+}
+
+.logout-form button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}

@@ -19,3 +19,21 @@
     <%= link_to "Tweet一覧に戻る", tweets_path %>
 
 </div>
+
+<%# おすすめの理由 %>
+<%= form_with model: @tweet do |f| %>
+
+    <%# おすすめの理由 %>
+    <div class="field">
+        <%= f.label :reason, "おすすめの理由" %>
+        <%= f.text_area :reason %>
+    </div>
+
+    <%# Amazonへのリンク %>
+    <%= f.label :amazon_url, "Amazonへのリンク" %>
+    <%= f.text_field :amazon_url %>
+
+    <%= f.submit "投稿する" %>
+
+<% end %>
+

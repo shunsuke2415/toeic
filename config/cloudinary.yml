@@ -1,0 +1,6 @@
+development:
+  cloud_name: "dfhkovvy0"
+  api_key: "225891421747364"
+  api_secret: "xZVCdbJgCt36HO6VGSskIucJ6j8"
+  enhance_image_tag: true
+  static_image_support: false

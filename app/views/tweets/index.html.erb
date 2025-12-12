@@ -1,23 +1,29 @@
-<h1>GeekTwitter</h1>
+    <h1>GeekTwitter</h1>
 
-<!-- ログアウトボタン -->
-<% if user_signed_in? %>
-    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<% end %>
+    <!-- ログアウトボタン -->
+    <% if user_signed_in? %>
+    <%= button_to "ログアウト",
+            destroy_user_session_path,
+            method: :delete,
+            class: "menu-label",
+            form: { class: "logout-form" } %>
 
-<!-- 診断機能リンク -->
-<%= link_to "診断機能", new_post_path %>
+    <% end %>
 
-<!-- 新規Tweet -->
-<%= link_to "新規投稿へ", new_tweet_path %>
-<%= link_to "いいねランキングへ", likes_path %>
-<%= stylesheet_link_tag 'index', media: "all" %>
 
-<h3>Tweet一覧</h3>
+    <!-- 診断機能リンク -->
+    <%= link_to "診断機能", new_post_path, class: "menu-label" %>
 
-<div class="tweets-container">
+    <!-- 新規Tweet -->
+    <%= link_to "新規投稿へ", new_tweet_path, class: "menu-label" %>
+    <%= link_to "いいねランキングへ", likes_path, class: "menu-label" %>
+    <%= stylesheet_link_tag 'index', media: "all" %>
+
+    <h3>Tweet一覧</h3>
+
+    <div class="tweets-container">
     <% @tweets.each do |t| %>
-    <div class="tweet">
+        <div class="tweet">
 
         <!-- ユーザー表示 -->
         <p><%= t.user.email %></p>
@@ -40,19 +46,27 @@
             </div>
         </div>
 
-        <!-- いいね機能 -->
+        <!-- いいね機能：ここが今回の修正版 -->
         <% if user_signed_in? %>
+
             <% if current_user.already_liked?(t) %>
-            <%= link_to tweet_like_path(id: t.id, tweet_id: t.id),
-                            data: { turbo_method: :delete } do %>
-                <p>いいねを取り消す</p> <%= t.likes.count %>
+
+            <!-- いいね取り消し（DELETE） -->
+            <%= button_to tweet_like_path(t, t.likes.find_by(user_id: current_user.id)),
+                            method: :delete do %>
+                ❤️ いいね済み（取り消す） <%= t.likes.count %>
             <% end %>
+
             <% else %>
-            <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id),
-                            data: { turbo_method: :post } do %>
-                <p>いいね</p> <%= t.likes.count %>
+
+            <!-- いいねする（POST） -->
+            <%= button_to tweet_likes_path(t),
+                            method: :post do %>
+                ♡ いいね <%= t.likes.count %>
             <% end %>
+
             <% end %>
+
         <% else %>
             <p>いいねの数 = <%= t.likes.count %></p>
         <% end %>
@@ -62,4 +76,8 @@
 
         </div>
     <% end %>
-</div>
+    <% @rank_tweets.each do |t| %>
+
+
+    <% end %>
+    </div>

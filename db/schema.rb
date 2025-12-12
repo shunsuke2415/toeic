@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_11_20_135936) do
+ActiveRecord::Schema[7.2].define(version: 2025_12_06_083208) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_20_135936) do
     t.string "title"
     t.string "image_id"
     t.string "book_id"
+    t.string "amazon_url"
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -73,6 +74,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_20_135936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.text "reason"
+    t.string "amazon_link"
   end
 
   create_table "users", force: :cascade do |t|
