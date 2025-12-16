@@ -18,16 +18,29 @@
     margin: 0;
     }
     body {
-    background-image: url("background.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-color: #c7E6FF;
     min-height: 100vh;
     position: relative; 
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
         Meiryo, "ＭＳ Ｐゴシック", sans-serif;
     }
+
+    /* 背景を固定する専用レイヤー */
+.fixed-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url("background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center -80px;
+  background-color: #c7E6FF;
+
+  z-index: -1;   /* 前面より後ろ */
+}
+
     /* Tweetsページだけは body の中央寄せを解除 */
 body.tweets-page {
   align-items: stretch;     /* 横幅いっぱいに広げる */
@@ -64,32 +77,35 @@ body.tweets-page {
     }
     
     h3 {
-  color: white;            /* 白文字 */
-  width: 250px;            /* テキストの箱の幅を狭めて改行させる */
-  margin: 30px auto;       /* 中央寄せ */
-  text-align: center;      /* 中央揃え */
-  line-height: 1.4;        /* 読みやすい行間 */
-  word-break: break-all;   /* 日本語の長文でも改行される */
+  color: #00135F;      /* 深い青 */
+  background-color: #f4faff;
+  padding: 10px 16px;
+  border-radius: 8px;
+
+  width: auto;         /* ★ 1行で表示 */
+  max-width: 90%;      /* ★ 画面はみ出し防止 */
+  margin: 30px auto;
+
+  text-align: center;
+  line-height: 1.4;
+  word-break: normal;  /* ★ 強制改行しない */
 }
+
     .radio-group {
-    display: flex;
-    justify-content: center;   /* 中央そろえ */
-    gap: 30px;                 /* 選択肢の間隔 */
-    flex-wrap: wrap;           /* スマホで折り返し */
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ★ 2列固定 */
+  gap: 20px;
+  max-width: 520px;
+  margin: 20px auto;
+  column-gap: 8px;  /* 横の間隔 */
+  row-gap: 16px;    /* 縦の間隔 */
 }
+
 
 .radio-group input[type="radio"] {
   display: none;             /* ラジオボタンを消す */
 }
 
-    .radio-group {
-    display: flex;
-    flex-direction: column;   /* ←縦並びに変更 */
-    align-items: center;       /* 中央寄せ */
-    gap: 15px;                 /* ボタン同士の間隔 */
-    margin-top: 20px;
-}
 
 .radio-group input[type="radio"] {
   display: none;             /* ラジオボタンを隠す */
@@ -110,7 +126,7 @@ body.tweets-page {
     font-weight: bold;
     font-size: 18px;
     color: #00BCD4;
-    background: #ECECEC;
+    background-color: #f4faff;
     border-radius: 6px;
     transition: .3s;
     text-align: center;
@@ -157,8 +173,8 @@ body.tweets-page {
 
 footer {
     color: white;
-    height: 30px;
-    background-color: #000;
+    height: 20px;
+    background-color: #00acee;
     bottom: 0;
     width: 100%;
     display: flex;
@@ -190,6 +206,8 @@ body.sessions-page {
   background-color: rgba(0, 90, 200, 0.6); /* 青系 */
   color: white;
   padding: 10px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-radius: 12px;
     border-radius: 6px;
     width: 100%;              /* ★ カードの幅いっぱいに広げる */
     text-align: center;       /* ★ 文字を中央寄せ */
@@ -202,12 +220,22 @@ body.sessions-page {
   background-color: rgba(255, 255, 255, 0.9); /* 白 */
   color: black;
   padding: 10px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-radius: 12px;
     border-radius: 6px;
     width: 100%; 
     text-align: center;
     display: block;
     margin-bottom: 10px;
 }
+.card-body:nth-of-type(odd),
+.card-body:nth-of-type(even) {
+  background-color: rgba(255, 255, 255, 0.65);
+  color: #000;
+}
+
+/* ▼ 1枚目を2枚目と同じ見た目＋青文字にする ▼ */
+
 
 main {
   display: flex;
@@ -266,4 +294,96 @@ main {
   border: none;
   outline: none;
   box-shadow: none;
+}
+/* ▼ 診断するボタンを label と同じ見た目にする ▼ */
+input[type="submit"] {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;       /* 中央寄せ */
+  padding: 0.6em 1.2em;
+
+  font-weight: bold;
+  font-size: 18px;
+  color: #00BCD4;
+  background: #ECECEC;
+
+  border: none;            /* デフォルト枠線を消す */
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+/* hover */
+input[type="submit"]:hover {
+  background: #00BCD4;
+  color: white;
+}
+
+/* 押したときの演出（お好み） */
+input[type="submit"]:active {
+  transform: scale(0.97);
+}
+.question-title {
+  color: #000;
+  max-width: 90%;
+  margin: 20px auto 10px;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: bold;
+
+  word-break: normal;   /* ← 超重要 */
+}
+.question-box {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* ★ ふんわり影 */                
+  border-radius: 12px;               /* 角を丸く */
+  padding: 20px 24px;                /* 中の余白 */
+  max-width: 700px;                  /* 全体の幅 */
+  margin: 30px auto;                 /* 中央寄せ */
+}
+.question-box h3 {
+  margin-bottom: 20px;   /* 質問文と選択肢の間隔 */
+}
+
+.question-box .radio-group {
+  margin-top: 0;         /* 余計なズレ防止 */
+}
+.book-content img {
+  width: 180px;   /* ← 好みで 150〜220px くらい */
+  height: auto;
+}
+.card {
+  border-radius: 12px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+}
+/* ▼ 診断結果カード内の h3 背景を少し濃くする ▼ */
+.card-body h3 {
+  background-color: #D6E9FF; /* ← #f4faff より一段濃い */
+}
+/* ▼ 診断結果ページだけ hr を消す ▼ */
+body.posts-page hr {
+  display: none;
+}
+label[for="tweet_reason"],
+label[for="tweet_amazon_url"] {
+  display: none;
+}
+/* ▼ tweets/new では Amazon入力と理由textareaを表示しない ▼ */
+body.tweets-page.new #tweet_reason,
+body.tweets-page.new #tweet_amazon_url {
+  display: none;
 }

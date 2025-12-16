@@ -1,20 +1,24 @@
 <%= form_tag(posts_path, method: :get) do %>
+<div class="question-box">
     <h3>Q.1 現在のTOEIC(や英検、TOEFL ibt、IELTS、英語偏差値)の点数は何点ですか？</h3>
+    <div class="radio-group">
         <%= radio_button_tag :age, "1", id: "age_1" %>
-    <label for="age_1">～６００（２級、６１、５．０、偏５０）</label>
+    <label for="age_1">～６００（～２級、６１、５．０、偏５０）</label>
 
     <%= radio_button_tag :age, "2", id: "age_2" %>
-    <label for="age_2">～７００（２級、７５、５．５、偏５６）</label>
+    <label for="age_2">～７００（２級～、７５、５．５、偏５６）</label>
 
     <%= radio_button_tag :age, "3", id: "age_3" %>
-    <label for="age_3">～７９５（２級～準１級程度、８７、６．０、偏６２）</label>
+    <label for="age_3">～７９５（～準１級、８７、６．０、偏６２）</label>
 
     <%= radio_button_tag :age, "4", id: "age_4" %>
-    <label for="age_4">～８９５（準１級程度～、１００、６．５、偏６８）</label>
+    <label for="age_4">～８９５（準１級～、１００、６．５、偏６８）</label>
+    </div>
+</div>
 
-
-
+<div class="question-box">
     <h3>Q.2 次のTOEICの目標点数は何点ですか？</h3>
+    <div class="radio-group">        
             <%= radio_button_tag :sex, "1", id: "sex_1" %>
     <label for="sex_1">６００～７００</label>
 
@@ -26,23 +30,30 @@
 
     <%= radio_button_tag :sex, "4", id: "sex_4" %>
     <label for="sex_4">９００～</label>
+    </div>
+</div>
 
-
+<div class="question-box">
     <h3>Q.3 TOEICを受けたことはありますか？ </h3>
-        <%= radio_button_tag :glasses, "1", id: "glasses_1" %>
+    <div class="radio-group">
+            <%= radio_button_tag :glasses, "1", id: "glasses_1" %>
     <label for="glasses_1">ある</label>
 
     <%= radio_button_tag :glasses, "2", id: "glasses_2" %>
     <label for="glasses_2">ない</label>
+    </div>
+</div>
 
-    
+<div class="question-box">
     <h3>Q.4 TOEICの試験日はいつですか？ </h3>
-        <%= radio_button_tag :date, "1", id: "date_1" %>
+    <div class="radio-group">
+            <%= radio_button_tag :date, "1", id: "date_1" %>
     <label for="date_1">１か月未満</label>
 
     <%= radio_button_tag :date, "2", id: "date_2" %>
     <label for="date_2">１か月以上先</label>
-
+    </div>
+</div>
 
     <br>
     <%= submit_tag "診断する" %>

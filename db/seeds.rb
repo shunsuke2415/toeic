@@ -11,42 +11,42 @@ diagnosis_results= [
     {
         title: "銀のフレーズ",
         image_id: "result_1",
-        content: "TOEIC頻出単語の銀レベル。",
+        content: "TOEIC頻出最重要単語1000語を収録",
         book_id: 1 , # 変更
         amazon_url: "https://www.amazon.co.jp/TOEIC-TEST-%E5%87%BA%E3%82%8B%E5%8D%98%E7%89%B9%E6%80%A5-%E9%8A%80%E3%81%AE%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BA-%E7%89%B9%E6%80%A5%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4023316849?utm_source=chatgpt.com "
     },
     {
         title: "金のフレーズ",
         image_id: "result_2",
-        content: "TOEIC頻出単語本、これさえ押さえれば単語には困らない！",
+        content: "質・内容・コスパ最高のTOEIC単語集",
         book_id: 2  , # 変更
         amazon_url: "https://www.amazon.co.jp/TOEIC-TEST-%E5%87%BA%E3%82%8B%E5%8D%98%E7%89%B9%E6%80%A5-%E9%87%91%E3%81%AE%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BA-%E7%89%B9%E6%80%A5%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4023315680?utm_source=chatgpt.com "
     },
     {
         title: "初めて受けるTOEIC(R)L&Rテスト 全パート完全攻略",
         image_id: "result_3",
-        content: "文法問題を集中的に対策。",
+        content: "TOEICのスコアアップに必要な全てが入った「一冊完結」型の総合対策本",
         book_id: 3 , # 変更
         amazon_url: "https://www.amazon.co.jp/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E5%8F%97%E3%81%91%E3%82%8BTOEIC-R-L-R%E3%83%86%E3%82%B9%E3%83%88-%E5%85%A8%E3%83%91%E3%83%BC%E3%83%88%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/dp/4757430582/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=FXWEEVMOPP4O&dib=eyJ2IjoiMSJ9.B2RREVnQMCLMQuAwOGHsvF3Ligafrj49E1EXlt9oDOsmxnK82nd4yJ0e84X6a3hov4ibiAJtEXEZXUuSJmj9Ho05KRkT_gMZPpjjXYbMyDCD960qww4EHJErRNkIpQSvDPzLthHAuz-uTne9jhSSCLq5VYRk6BoqSEKC-z80szsaeMChUaz0Gghyh885RUuNBBVCW0KKq_VSuZEQROiXlLaZPjtXaZ_gKQIgeICUPeo.MQi7d6Vj5dzun2x7waoXeZGywdI4QVK2-KI3xdnZlq0&dib_tag=se&keywords=TOEIC+%E5%85%A8%E3%83%91%E3%83%BC%E3%83%88%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5&qid=1765451454&s=books&sprefix=toeic+%E5%85%A8%E3%83%91%E3%83%BC%E3%83%88%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%2Cstripbooks%2C162&sr=1-1"
     },
     {
         title: "世界一わかりやすいTOEIC(R)L&Rテスト総合模試(６００点突破レベル)",
         image_id: "result_4",
-        content: "TOEIC頻出単語の銀レベル。",
+        content: "カリスマ講師・関正生が厳選、600点突破を目指す初心者のために作られた全400問",
         book_id: 4  ,# 変更
         amazon_url: "https://www.amazon.co.jp/CD2%E6%9E%9A%E4%BB%98-%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%84TOEIC-L-R%E3%83%86%E3%82%B9%E3%83%88%E7%B7%8F%E5%90%88%E6%A8%A1%E8%A9%A61-600%E7%82%B9%E7%AA%81%E7%A0%B4%E3%83%AC%E3%83%99%E3%83%AB/dp/4046022051/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=1QJVSJKHJMLH2&dib=eyJ2IjoiMSJ9.cniNLaDZAZDOhs3nQ3VeGeD4-rYjv1HJY6i0i4fRF5EPWAKuIg-3siUKshZhyCI1f08o-Bl9QUO0y5kxumnG_UJ6wiNnqNnwaG7Ryk-lMHVmbsOVPJ2RglwovsXyhIGE58l6e1vIHE6gqLLE9umZYAWGxWobbACNfxxUpcueBXRbTrW93J3MQe8yJ_zsg9ZJDXGCsz_CNdDXJ3l_EbrlL1AZWf6lnM1FuAI_Zp7pX94._O29lc5fbTudwD-D48DtKtdy_wHMzjiTM-D0KrMRNys&dib_tag=se&keywords=%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%84TOEIC%28R%29L%26R%E3%83%86%E3%82%B9%E3%83%88%E7%B7%8F%E5%90%88%E6%A8%A1%E8%A9%A6%28600%E7%82%B9%E7%AA%81%E7%A0%B4%E3%83%AC%E3%83%99%E3%83%AB%29&qid=1765451488&s=books&sprefix=%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%84toeic+r+l%26r%E3%83%86%E3%82%B9%E3%83%88%E7%B7%8F%E5%90%88%E6%A8%A1%E8%A9%A6+600%E7%82%B9%E7%AA%81%E7%A0%B4%E3%83%AC%E3%83%99%E3%83%AB+%2Cstripbooks%2C184&sr=1-1 "
     },
     {
         title: "TOEIC(R)L&Rテスト 文法問題はじめの４００問",
         image_id: "result_5",
-        content: "TOEIC頻出単語の金レベル。",
+        content: "990点満点130回のTEX先生が、ほんとにでるとこだけを解説、文法が苦手な人でも最後までやり通せる！",
         book_id: 5 , # 変更
         amazon_url: "https://www.amazon.co.jp/%E9%9F%B3%E5%A3%B0DL-TOEIC-R%E3%83%86%E3%82%B9%E3%83%88-%E6%96%87%E6%B3%95%E5%95%8F%E9%A1%8C%E3%81%AF%E3%81%98%E3%82%81%E3%81%AE400%E5%95%8F/dp/4866396016?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&ref_=fplfs&psc=1&smid=AN1VRQENFRJN5&utm_source=chatgpt.com "
     },
     {
         title: "TOEIC (R) L&Rテスト 文法問題でる1000問",
         image_id: "result_6",
-        content: "文法問題対策にはこれ！",
+        content: "文法対策の決定版! 累計部数50万部を突破! 各書店でず〜っとNo. 1",
         book_id: 6 , # 変更
         amazon_url: "https://www.amazon.co.jp/TOEIC-L-R%E3%83%86%E3%82%B9%E3%83%88-%E6%96%87%E6%B3%95%E5%95%8F%E9%A1%8C-%E3%81%A7%E3%82%8B1000%E5%95%8F/dp/4866390832?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&ref_=fplfs&psc=1&smid=AN1VRQENFRJN5&utm_source=chatgpt.com "
     },
