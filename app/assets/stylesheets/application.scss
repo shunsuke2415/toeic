@@ -18,6 +18,8 @@
     margin: 0;
     }
     body {
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
     position: relative; 
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
@@ -39,12 +41,6 @@
   background-color: #c7E6FF;
 
   z-index: -1;   /* 前面より後ろ */
-}
-
-    /* Tweetsページだけは body の中央寄せを解除 */
-body.tweets-page {
-  align-items: stretch;     /* 横幅いっぱいに広げる */
-  justify-content: flex-start; /* 上寄せに戻す（お好み） */
 }
 
     header {
@@ -89,6 +85,8 @@ body.tweets-page {
   text-align: center;
   line-height: 1.4;
   word-break: normal;  /* ★ 強制改行しない */
+  white-space: nowrap;
+  display: inline-block;
 }
 
     .radio-group {
@@ -150,14 +148,6 @@ body.tweets-page {
 .radio-group input[type="radio"]:checked + label {
   background-color: #00135f;  /* 選択時の背景色 */
   color: white;               /* 文字を白色に */
-}
-
-
-/* ツイート全体を横いっぱいにする */
-.tweets-container {
-  width: 100%;
-  max-width: 900px; /* 好みに合わせて調整可能 */
-  margin: 0 auto;   /* 中央に配置 */
 }
 
 /* 個々の tweet も横いっぱいに広げる */
@@ -238,10 +228,12 @@ body.sessions-page {
 
 
 main {
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  padding: 40px 0 100px;
 }
 
 /* ▼ ログイン / 新規登録をボタン化する ▼ */
@@ -386,4 +378,531 @@ label[for="tweet_amazon_url"] {
 body.tweets-page.new #tweet_reason,
 body.tweets-page.new #tweet_amazon_url {
   display: none;
+}
+
+.ranking-title {
+  text-align: center;
+  font-size: 28px;
+  margin: 40px 0;
+}
+
+.ranking-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.ranking-card {
+  background: #ffffff;
+  width: 260px;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.material-title {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.material-comment {
+  font-size: 14px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.amazon-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ff9900;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.category-section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.category-title {
+  width: 180px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #1976d2;
+  margin-right: 40px;
+  padding-top: 20px;
+}
+.material-image {
+  width: 180px;     /* 念のため固定 */
+  height: auto;     /* ← これが超重要 */
+  display: block;
+  margin: 0 auto 12px;
+  border-radius: 8px;
+}
+.material-image.top-one {
+  width: 200px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+.image-wrapper {
+  display: inline-block;
+  position: relative; 
+}
+
+.ribbon15 {  
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: 10px;
+
+  margin: 0;
+  padding: 10px 0;
+  z-index: 20;
+
+  width: 40px;
+  text-align: center;
+
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+
+  border-radius: 2px 0 0 0;
+}
+.ribbon15::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100%;
+  border-left: 20px solid;
+  border-right: 20px solid;
+  border-bottom: 10px solid transparent;
+}
+
+/* 🥇 1位 */
+.ribbon15.rank-1 {
+  background: linear-gradient(#FFD700, #E6B800);
+}
+.ribbon15.rank-1::after {
+  border-left-color: #E6B800;
+  border-right-color: #E6B800;
+}
+
+/* 🥈 2位 */
+.ribbon15.rank-2 {
+  background: linear-gradient(#C0C0C0, #9E9E9E);
+}
+.ribbon15.rank-2::after {
+  border-left-color: #9E9E9E;
+  border-right-color: #9E9E9E;
+}
+
+/* 🥉 3位 */
+.ribbon15.rank-3 {
+  background: linear-gradient(#CD7F32, #A0522D);
+}
+.ribbon15.rank-3::after {
+  border-left-color: #A0522D;
+  border-right-color: #A0522D;
+}
+
+
+.material-image.top-one {
+  border: 3px solid gold;
+  transform: scale(1.03);
+}
+
+body.tweets-page h3 {
+  width: auto !important;
+}
+
+.ranking-label {
+  display: inline-block;
+  align-self: center;      /* ← flex対策（超重要） */
+
+  background-color: white;
+  color: #00135F;
+
+  padding: 12px 20px;
+  border-radius: 10px;
+
+  font-weight: bold;
+  white-space: nowrap;
+}
+h3.menu-label {
+  background-color: #ECECEC;  /* ← 他と同じ白 */
+}
+.material-title {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.l-header {
+  background-color: #00a7e1;
+  min-width: 960px;
+  width: 100%;
+}
+
+.l-header__inner {
+  max-width: 1200px;   /* 好きな幅でOK */
+  margin: 0 auto;     /* ← これが超重要 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 24px;
+}
+
+.l-header__logo {
+  font-size: 22px;
+  color: #fff;
+  margin: 0;
+}
+
+/* ナビ */
+.l-navigation__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.l-navigation__item {
+  margin-left: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.l-navigation__link {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: Arial, Helvetica, "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+.l-navigation__link:hover {
+  text-decoration: underline;
+}
+
+/* ユーザー表示（公式と同じく少し暗め） */
+.l-navigation__text {
+  font-size: 14px;
+  color: #141414;
+}
+.l-navigation {
+  margin-left: auto;
+}
+/* ログアウト form の余白を消す */
+.logout-form {
+  margin: 0;
+}
+
+/* button を a タグみたいにする */
+.logout-form button {
+  all: unset;              /* ← 最重要 */
+  color: #ffffff;
+  font-size: 14px;
+  font-family: Arial, Helvetica, "Hiragino Kaku Gothic ProN", sans-serif;
+  cursor: pointer;
+}
+
+/* hover は公式風 */
+.logout-form button:hover {
+  text-decoration: underline;
+}
+
+.ranking-card {
+  width: 240px;
+  transition: transform 0.3s ease;
+}
+
+.ranking-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+.ranking-card.swiper-slide {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+.swiper {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.category-section {
+  width: 100%;
+}
+
+.ranking-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+    /* Tweetsページだけは body の中央寄せを解除 */
+body.tweets-page {
+  align-items: stretch;     /* 横幅いっぱいに広げる */
+  justify-content: flex-start; /* 上寄せに戻す（お好み） */
+}
+.tweet {
+  min-width: 280px;   /* カード幅（300でもOK） */
+  max-width: 280px;
+  flex-shrink: 0;     /* 横並び維持 */
+  scroll-snap-align: start;
+}
+
+.tweets-container::-webkit-scrollbar {
+  display: none;
+}
+
+.tweet {
+  max-width: 600px;   /* 詳細ページならこれくらい自然 */
+  margin: 0 auto;
+  padding: 16px;
+  width: 260px;     /* 1ツイートの幅 */
+  flex-shrink: 0;   /* 縮まらないように */
+  flex: 0 0 auto;
+}
+
+.tweet-image {
+  max-width: 165px;
+  height: auto;   /* ← 超重要 */
+  display: block;
+}
+.tweet-image {
+  margin-bottom: 12px;
+  margin: 0 auto 12px;
+}
+.tweets-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 320px;
+  gap: 16px;
+
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 16px 0;
+}
+
+.tweet {
+  width: 280px;
+  min-width: 280px;
+  background: rgba(255,255,255,0.85);
+  padding: 16px;
+  border-radius: 8px;
+}
+/* ===== hello/show：教材一覧 ===== */
+/* ===== hello/show：教材一覧（完成版） ===== */
+body.hello-page.show .tweets-container {
+  display: grid;
+
+  /* 横は3冊だけ */
+  grid-template-columns: repeat(3, 1fr);
+
+  /* 縦に自然に並べる（←超重要） */
+  grid-auto-flow: row;
+
+  gap: 24px;
+
+  max-width: 1100px;
+  margin: 40px auto;
+
+  /* ▼ スクロール制御 */
+  max-height: calc(4 * 320px + 3 * 24px); /* 4行分 */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 20px;
+}
+/* 診断結果ページのカード幅を制限 */
+body.posts-page .card {
+  max-width: 600px;   /* ← 好みで 360〜450px */
+  margin: 0 auto;     /* 中央寄せ */
+}
+
+/* tweets/index だけ main の上余白を消す */
+body.tweets-page.index main {
+  padding-top: 0;
+}
+.question-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #00135F;
+  text-shadow:
+    -1px -1px 0 rgba(255,255,255,0.6),
+    1px -1px 0 rgba(255,255,255,0.6),
+    -1px  1px 0 rgba(255,255,255,0.6),
+    1px  1px 0 rgba(255,255,255,0.6);
+}
+
+/* 全体中央寄せ */
+.post-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* カード */
+.post-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* タイトル */
+.post-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 32px;
+  color: #2ea7e0;
+}
+
+/* フォームのまとまり */
+.form-group {
+  margin-bottom: 24px;
+}
+
+/* ラベル */
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 入力欄 */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* 画像 */
+.form-file {
+  font-size: 14px;
+}
+
+/* 送信ボタン */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2ea7e0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #1c8fc9;
+}
+
+/* 戻るリンク */
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+.form-group label {
+  background: none;
+}
+/* 投稿内容 input だけ */
+#tweet_body.form-input {
+  border: 2px solid #8fd3f4; /* 水色 */
+  background: #fff;
+}
+.form-group label {
+  background: none;
+  color: #2ea7e0;
+  font-weight: bold;
+  cursor: default;
+}
+/* ===== 診断結果ページ：上の文字ゾーンをいい感じに ===== */
+body.posts-page.index .diagnosis-result {
+  padding-top: 24px;
+}
+
+body.posts-page.index .result-hero {
+  max-width: 900px;
+  margin: 24px auto 18px;
+  padding: 18px 22px;
+
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+  text-align: center;
+  backdrop-filter: blur(6px); /* 透明カードっぽく */
+}
+
+body.posts-page.index .result-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #00135F;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+
+  /* 背景がイラストでも読みやすく */
+  text-shadow:
+    -1px -1px 0 rgba(255,255,255,0.7),
+    1px -1px 0 rgba(255,255,255,0.7),
+    -1px  1px 0 rgba(255,255,255,0.7),
+    1px  1px 0 rgba(255,255,255,0.7);
+}
+
+body.posts-page.index .result-lead {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b4a6b;
+}
+
+body.posts-page.index .result-note {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a6f97;
+}
+
+/* hr を控えめに（消したいなら display:none でもOK） */
+body.posts-page.index .result-divider {
+  max-width: 900px;
+  margin: 12px auto 22px;
+  opacity: 0.35;
+}
+.confetti {
+  position: fixed;        /* ← relative → fixed */
+  top: 0;
+  left: 0;
+  width: 100vw;           /* 画面全体 */
+  height: 100vh;
+  pointer-events: none;   /* クリック邪魔しない */
+  z-index: 9999
+
 }

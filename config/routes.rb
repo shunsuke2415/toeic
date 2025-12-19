@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
   end
+  get "hello/link" => "hello#link"
+  get "hello/show" => "hello#show"
 
   resources :likes, only: [:index]
   root 'hello#index'

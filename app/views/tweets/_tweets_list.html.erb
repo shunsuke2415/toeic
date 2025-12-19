@@ -1,0 +1,42 @@
+<h3 class="menu-label ranking-label">みんなの教材ランキング</h3>
+
+<div class="tweets-container">
+    <% @tweets.each do |t| %>
+        <div class="tweet">
+
+        <% if t.image.attached? %>
+            <%= image_tag t.image, class: "tweet-image" %>
+        <% end %>
+
+        <div class="main-box">
+            <div class="left-container">
+            <%= t.body %>
+            </div>
+
+            <div class="right-container">
+            <%= link_to "詳細", tweet_path(t.id) %>
+            <%= link_to "編集", edit_tweet_path(t.id) %>
+            <%= button_to "削除", tweet_path(t.id), method: :delete %>
+            </div>
+        </div>
+
+        <% if user_signed_in? %>
+            <% if current_user.already_liked?(t) %>
+            <%= button_to tweet_like_path(t, t.likes.find_by(user_id: current_user.id)),
+                            method: :delete do %>
+                ❤️ いいね済み（取り消す） <%= t.likes.count %>
+            <% end %>
+            <% else %>
+            <%= button_to tweet_likes_path(t),
+                            method: :post do %>
+                ♡ いいね <%= t.likes.count %>
+            <% end %>
+            <% end %>
+        <% else %>
+            <p>いいねの数 = <%= t.likes.count %></p>
+        <% end %>
+
+        <p class="time"><%= t.created_at %></p>
+        </div>
+    <% end %>
+</div>

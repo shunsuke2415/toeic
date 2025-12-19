@@ -1,39 +1,27 @@
 <%= stylesheet_link_tag 'new', media: "all" %>
 
 <div class="post-container">
-    <p class="title">投稿フォーム</p>
+    <div class="post-card">
+        <h2 class="post-title">投稿フォーム</h2>
 
-    <%= form_for @tweet do |f| %>
-    
-    <%= f.label :body, "投稿内容" %><br>
-    <%= f.text_field :body, size: 140 %><br>
+        <%= form_for @tweet, html: { multipart: true } do |f| %>
 
-    <!-- ★ 画像投稿欄（必須！） -->
-    <%= f.label :image, "画像" %><br>
-    <%= f.file_field :image %><br>
+        <div class="form-group">
+            <%= f.label :body, "投稿内容" %>
+            <%= f.text_field :body, class: "form-input" %>
+        </div>
 
-    <%= f.submit "送信" %><br>
+        <div class="form-group">
+            <%= f.label :image, "画像" %>
+            <%= f.file_field :image, class: "form-file" %>
+        </div>
 
-    <% end %>
+        <%= f.submit "送信", class: "submit-btn" %>
 
-    <%= link_to "Tweet一覧に戻る", tweets_path %>
+        <% end %>
 
-</div>
-
-<%# おすすめの理由 %>
-<%= form_with model: @tweet do |f| %>
-
-    <%# おすすめの理由 %>
-    <div class="field">
-        <%= f.label :reason, "おすすめの理由" %>
-        <%= f.text_area :reason %>
+        <div class="back-link">
+        <%= link_to "Tweet一覧に戻る", tweets_path %>
+        </div>
     </div>
-
-    <%# Amazonへのリンク %>
-    <%= f.label :amazon_url, "Amazonへのリンク" %>
-    <%= f.text_field :amazon_url %>
-
-    <%= f.submit "投稿する" %>
-
-<% end %>
-
+</div>

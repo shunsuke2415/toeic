@@ -46,10 +46,6 @@ class TweetsController < ApplicationController
     tweet.destroy
     redirect_to action: :index
   end
-  
-  def post_params
-  params.require(:post).permit(:body, :reason, :amazon_link) # ここを更新
-  end
 
   private
   def tweet_params

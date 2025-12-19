@@ -13,18 +13,28 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="<%= controller_name %>-page <%= action_name %>">
+    <div class="confetti"></div> 
     <div class="fixed-bg"></div>
     <header>
       <h1>TOEIC教材診断</h1>
       <div class="header-list">
       <ul>
-        <li><%= link_to "ホーム", tweets_path %></li>
-        <li><%= link_to "新規投稿",tweets_path %></li>
+        <li><%= link_to "ホームへ", tweets_path %></li>
+        <!-- ログアウト（formだけど見た目はリンク） -->
+                <li class="l-navigation__item">
+                    <%= button_to "ログアウト",
+                        destroy_user_session_path,
+                        method: :delete,
+                        form: { class: "logout-form" },
+                        class: "l-navigation__link" %>
+                </li>
       </ul>
       </div>
     </header>
@@ -34,6 +44,6 @@
     <footer>
       <p>Copyright © GeekSalon All Rights Reserved.</p>
     </footer>
-  <body class="<%= controller_name %>-page <%= action_name %>">
+  <body>
 
 </html>

@@ -1,3 +1,55 @@
-My name is GeekSalon.
-<%= link_to 'トップページ', hello_index_path %> 
-<%= link_to '一覧表示', tweets_path %>
+<h2 class="ranking-title">各分野教材おすすめTOP3</h2>
+
+    <% @categories.each do |category_name, posts| %>
+    <div class="category-section">
+
+        <div class="category-title">
+        <%= category_name %>
+        </div>
+
+        <div class="ranking-list">
+        <% posts.each do |post| %>
+            <div class="ranking-card">
+
+            <!-- 画像＋順位バッジ -->
+            <div class="image-wrapper">
+
+                <% if post.image_id.present? %>
+                <%= cl_image_tag post.image_id,
+                    width: 180,
+                    crop: :fit,
+                    class: "material-image" %>
+                <% end %>
+
+                <!-- 順位リボン -->
+            <span class="ribbon15 rank-<%= post.number %>">
+            <%= post.number %>
+            </span>
+
+
+            </div>
+
+            <!-- タイトル -->
+            <h3 class="material-title">
+                <%= post.title %>
+            </h3>
+
+            <!-- コメント -->
+            <p class="material-comment">
+                <%= post.content %>
+            </p>
+
+            <!-- Amazonリンク -->
+            <% if post.amazon_url.present? %>
+                <a href="<%= post.amazon_url %>" target="_blank" class="amazon-link">
+                Amazonで見る
+                </a>
+            <% end %>
+
+            </div>
+        <% end %>
+        </div>
+
+    </div>
+<% end %>
+

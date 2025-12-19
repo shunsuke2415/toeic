@@ -84,6 +84,7 @@ class PostsController < ApplicationController
 
     if recommended_ids.present?
         posts = Post.where(book_id: recommended_ids)
+        
 
         # MySQL なら FIELD() が使える → 本番環境向け
         if ActiveRecord::Base.connection.adapter_name.downcase.include?("mysql")
